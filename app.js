@@ -68,7 +68,7 @@ function editNote(index) {
 
   var edited_note = prompt("Enter new note")
 
-  if(edited_note != null){
+  if(edited_note){
     let notes = localStorage.getItem("notes");
   if (notes == null) {
     notesObj = [];
