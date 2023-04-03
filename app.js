@@ -80,6 +80,8 @@ function editNote(index) {
 
 localStorage.setItem("notes", JSON.stringify(notesObj));
 
+showNotes()
+
 }
 
 
