@@ -1,8 +1,5 @@
- 
-console.log("Welcome to notes app. This is app.js");
-showNotes();
+ showNotes();
 
-// If user adds a note, add it to the localStorage
 let addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", function(e) {
   let addTxt = document.getElementById("addTxt");
@@ -32,9 +29,10 @@ function showNotes() {
     html += `
             <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Note ${index + 1}</h5>
+                        <h5 class="card-title">Todo ${index + 1}</h5>
                         <p class="card-text"> ${element}</p>
-                        <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
+                        <button id="${index}" onclick="editNote(this.id)" class="btn btn-success">Edit</button>
+                        <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-danger">Delete</button>
                     </div>
                 </div>`;
   });
@@ -42,14 +40,14 @@ function showNotes() {
   if (notesObj.length != 0) {
     notesElm.innerHTML = html;
   } else {
-    notesElm.innerHTML = `Nothing to show! Use "Add a Todo" section above to add notes.`;
+    notesElm.innerHTML = `Nothing to show! Use "Add a Todo" section above to add todos.`;
   }
 }
 
 // Function to delete a note
 function deleteNote(index) {
 //   console.log("I am deleting", index);
- if(confirm("Do you want to delete note?")){
+ if(confirm("Do you want to delete todo?")){
  
 
   let notes = localStorage.getItem("notes");
@@ -64,6 +62,11 @@ function deleteNote(index) {
   showNotes();
   
  }
+}
+
+function editNote(index){
+
+
 }
 
 
@@ -81,14 +84,5 @@ search.addEventListener("input", function(){
         else{
             element.style.display = "none";
         }
-        // console.log(cardTxt);
     })
 })
-
-/*
-Further Features:
-1. Add Title
-2. Mark a note as Important
-3. Separate notes by user
-4. Sync and host to web server 
-*/ 
