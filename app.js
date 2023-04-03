@@ -68,7 +68,8 @@ function editNote(index) {
 
   var edited_note = prompt("Enter new note")
 
-  let notes = localStorage.getItem("notes");
+  if(edited_note != null){
+    let notes = localStorage.getItem("notes");
   if (notes == null) {
     notesObj = [];
   } else {
@@ -82,6 +83,9 @@ localStorage.setItem("notes", JSON.stringify(notesObj));
 
 showNotes()
 
+  }
+
+  
 }
 
 
