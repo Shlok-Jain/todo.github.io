@@ -66,7 +66,7 @@ function deleteNote(index) {
 
 function editNote(index) {
 
-  var edited_note = prompt("Enter new note")
+  var edited_note = prompt("Enter new todo")
 
   if(edited_note){
     let notes = localStorage.getItem("notes");
